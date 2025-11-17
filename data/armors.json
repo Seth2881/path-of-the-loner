@@ -1,0 +1,26 @@
+{
+    "blood_corrupted_armor" : {
+        "defence" : 100,
+        "self_damage" : 5,
+        "bonus_zone_damage" : 10,
+        "thorns" : 0
+    },
+    "palladium" : {
+        "defence" : 70,
+        "self_damage" : 0,
+        "bonus_zone_damage" : 0,
+        "thorns" : [5,"all"]
+    },
+    "diamond_armor" : {
+        "defence" : 60,
+        "self_damage" : 0,
+        "bonus_zone_damage" : 0,
+        "thorns" : [20,["dark_elf","dark_mage"]]
+    },
+    "archer_armor" : {
+        "defence" : 30,
+        "self_damage" : 0,
+        "bonus_zone_damage" : 0,
+        "thorns" : 0
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "dark_elf": {
+        "type": "elite",
+        "hp": 120,
+        "damage": [10, 18],
+        "magical": false,
+        "effects": ["corrupted_blood"]
+    },
+
+    "gobelin": {
+        "type": "normal",
+        "hp": 60,
+        "damage": [5, 10],
+        "magical": false,
+        "effects": []
+    },
+
+    "dragon": {
+        "type": "boss",
+        "hp": 350,
+        "damage": [20, 30],
+        "magical": true,
+        "effects": ["fire_breath","ranged_attack"]
+    },
+
+    "mecha": {
+        "type": "elite",
+        "hp": 150,
+        "damage": [12, 20],
+        "magical": false,
+        "effects": ["armored"]
+    },
+
+    "orque": {
+        "type": "normal",
+        "hp": 80,
+        "damage": [7, 13],
+        "magical": false,
+        "effects": []
+    },
+
+    "dark_mage": {
+        "type": "boss",
+        "hp": 220,
+        "damage": [15, 25],
+        "magical": true,
+        "effects": ["poison", "slow"]
+    },
+
+    "soron": {
+        "type": "ultimate_boss",
+        "hp": 600,
+        "damage": [18, 28],
+        "magical": true,
+        "spawn_chance_percent": 0.25,
+        "effects": [
+            "ranged_attack",
+            "melee_poison"
+        ]
+    }
+}

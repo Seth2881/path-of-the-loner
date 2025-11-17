@@ -1,0 +1,25 @@
+{
+    "archer": {
+        "dgt_hand": [4, 7],
+        "agility": 25,
+        "attack-order": 1,
+        "arrow_count": 10,
+        "weapons": ["bow", "dagger"],
+        "hp": 85
+    },
+
+    "warrior": {
+        "dgt_hand": [6, 10],
+        "agility": 1,
+        "attack-order": "",
+        "hp": 110
+    },
+
+    "magician": {
+        "dgt_hand": [2, 4],
+        "agility": 10,
+        "attack-order": "",
+        "mana-count": 100,
+        "hp": 75
+    }
+}

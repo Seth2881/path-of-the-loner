@@ -7,7 +7,7 @@ trois type de personnages :
         -attaque avec arme
     -archère/er
         -taut d'esquive +25%
-        -attaque en premier
+        -attaque en premier (1 d'ordre d'attaque pour les autres, entre 1 et nombre d'ennemis)
         (optionnel)
         -carquoi avec stock de flèche (random entre 10 et 20)
         -attaque à distance (arc)
@@ -43,13 +43,13 @@ types d'armures :
     -sang corrompu (très résistant mais dégat persistant léger, inflige des dégats bonus sur les ennemis)
     -palladium (renvoie 1% des dégat tanké par l'armure)
     -diamants (tanke 10% de dégats en plus face aux classes mage noir et elfe noir)
-    -armure du maitre archer (+2% d'agilité quand un archer/ère le porte, chance de mettre de doubler les dégats (adversaire pris par surprise))
+    -armure du maitre archer (+2% d'agilité quand un archer/ère le porte, chance (10) de doubler les dégats (adversaire pris par surprise))
 
 types d'armes :
     -dagues (15-20 dégats)
-    -marteau (15 dégats,ne peux pas attaquer au prochain tour)
-    -epée immaculée (+5% dégats magique, 5 dégats)
-    -baton de l'arcane (+10% dêgats magique, sort de boule de feu (7-10dgt), sort de soin (+5pv (bonus magique ne s'applique pas), battre les forces du mal (3% bonus de dgt sur mage noir et elfe noir, 5-10dgt)))
+    -marteau (10-15 dégats,ne peux pas attaquer au prochain tour)
+    -epée immaculée (5-10 dégats)
+    -baton de l'arcane (sort de boule de feu (7-10dgt), sort de soin (+5pv (bonus magique ne s'applique pas), battre les forces du mal (3% bonus de dgt sur mage noir et elfe noir, 5-10dgt)))
     -arc des forêts (10-15 dgt, 50% de chance de multiplier par 0.85 les dgt (bonus d'agillité de l'archer/ère))
 
-    -attaque aux points (2dgt, 5 si guerrier)
+l'agilité est le %age de chance d'esquiver l'attaque ennemie
