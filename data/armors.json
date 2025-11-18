@@ -3,9 +3,9 @@
         "defence" : 100,
         "self_damage" : 5,
         "bonus_zone_damage" : 10,
-        "thorns" : 0
+        "thorns" : []
     },
-    "palladium" : {
+    "palladium_armor" : {
         "defence" : 70,
         "self_damage" : 0,
         "bonus_zone_damage" : 0,
@@ -21,6 +21,12 @@
         "defence" : 30,
         "self_damage" : 0,
         "bonus_zone_damage" : 0,
-        "thorns" : 0
+        "thorns" : []
+    },
+    "leather_armor" : {
+        "defence" : 20,
+        "self_damage" : 0,
+        "bonus_zone_damage" : 0,
+        "thorns" : []
     }
 }

@@ -2,7 +2,7 @@
     "daggers" : {
         "damage" : [7,12],
         "magical" : false,
-        "bonus" : [[],0]
+        "bonus" : []
     },
     "hammer" : {
         "damage" : [10,15],
