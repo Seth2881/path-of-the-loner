@@ -1,5 +1,6 @@
 {
     "archer": {
+        "ascend" : "archer",
         "dgt_hand": [4, 7],
         "agility": 25,
         "attack_order": 1,
@@ -9,6 +10,7 @@
     },
 
     "warrior": {
+        "ascend" : "warrior",
         "dgt_hand": [6, 10],
         "agility": 1,
         "attack_order": "",
@@ -16,6 +18,7 @@
     },
 
     "magician": {
+        "ascend" : "magician",
         "dgt_hand": [2, 4],
         "agility": 10,
         "attack_order": "",
@@ -23,6 +26,7 @@
         "hp": 75
     },
     "default" : {
+        "ascend" : "default",
         "dgt_hand" : [2,4],
         "agility" : 10,
         "attack_order":"",

@@ -20,4 +20,5 @@ class Arena :
             if not(player.is_alive()) :
                 self.players.remove(player)
                 self.win = True
-                return self.players[0]
+                return player
+        return None

@@ -1,5 +1,10 @@
 from random import randint as rdt
 import json
+from classes.weapons import Weapon
+from classes.armors import Armor
+
+with open("data/spells.json","r",encoding='utf-8') as f:
+    data_spells = json.load(f)
 
 with open("data/ascendance.json","r",encoding='utf-8') as f :
     data_type = json.load(f)
@@ -13,76 +18,29 @@ with open("data/armors.json","r",encoding='utf-8') as f :
 with open("data/ascendance.json","r",encoding='utf-8') as f :
     data_monsters = json.load(f)
 
-class Armor :
-    def __init__(self,player_armor:list[str,dict]=["leather_armor",data_armor["leather_armor"]]):
-
-        self.name = player_armor[0]
-
-        self.defence = player_armor[1]["defence"]
-        self.self_damage = player_armor[1]["self_damage"]
-        self.bonus_damage = player_armor[1]["bonus_zone_damage"]
-        self.thorns = player_armor[1]["thorns"]
-    
-    def __str__(self)->str:
-        return self.name
-    
-    def is_broke(self)->bool:
-        return self.defence <= 0
-
-    def get_hit(self,amount:int)->int:
-        if not(self.is_broke()) :
-            self.defence -= amount
-            if self.is_broke() :
-                print('your armor broke ! armor effects no longer apply.')
-            return self.defence
-        
-
-    def get_effect() :
-        pass
-
-class Weapon :
-    def __init__(self,player_weapon:list[str,dict]=["none",{}]):
-
-        if player_weapon[0] != "none" :
-            self.damage = player_weapon[1]["damage"]
-            self.ismagical = player_weapon[1]["magical"]
-            self.bonus = player_weapon[1]["bonus"]
-            self.name = player_weapon[0]
-
-            if self.name == "hammer":
-                self.canattack = True
-        else :
-            self.name = 'feast'
-            self.damage = None
-            self.ismagical = False
-            self.bonus = []
-
-    def __str__(self)->str:
-        return self.name
-    
-    def attack(self)->int :
-        if self.ismagical == False :
-            if self.name == "hammer" and self.canattack :
-                self.canattack = False
-                return rdt(self.damage[0],self.damage[1])
-            elif self.name == "hammer" and not self.canattack :
-                self.canattack = True
-                print('you can only attack every two turn with the hammer')
-                return 0
-            else :
-                return rdt(self.damage[0],self.damage[1])
-        else :
-            return rdt(self.damage[0],self.damage[1])            
-
 class Character() :
-    def __init__(self,player_type:list[str,dict]=["default",data_type["default"]],player_weapon:Weapon=Weapon(),player_armor:Armor=Armor()):
+    def __init__(self,player_type:list[str,dict]=["default",data_type["default"]],player_weapon=Weapon(),player_armor:Armor=Armor()):
 
-        self.weapon = player_weapon
+        if type(player_weapon)==list :
+            self.weapon = player_weapon
+        else :
+            self.weapon = [player_weapon]
+
+        if self.weapon[0].name == "feast" and len(self.weapon) == 1:
+            self.weapon[0].damage = player_type[1]["dgt_hand"]
+        elif self.weapon[0].name == "feast" :
+            self.weapon.pop(0)
+        elif len(self.weapon) == 2 and self.weapon[1].name == "feast" :
+            self.weapon.pop(1)
+        elif len(self.weapon) == 2 and self.weapon[0].name == "feast" and self.weapon[1].name == "feast" :
+            self.weapon.pop(0)
+            self.weapon[0].damage = player_type[1]["dgt_hand"]
+
         self.armor = player_armor
-        if self.weapon.name == "feast" :
-            self.weapon.damage = player_type[1]["dgt_hand"]
+        self.mana_count = 0
 
-        self.ascendence = player_type[0]
+        self.name = player_type[0]
+        self.ascendance = player_type[1]["ascend"]
 
         self.total_health_max =  player_type[1]["hp"]+player_armor.defence
         self.total_health = player_type[1]["hp"]+player_armor.defence
@@ -90,17 +48,21 @@ class Character() :
 
         self.agility = player_type[1]["agility"]
         self.attack_order = player_type[1]["attack_order"]
+        self.nbr_attack = 1
 
         self.is_magical = False
-
-        if player_type[0] == "archer" :
+        if self.ascendance == "warrior" :
+            self.nbr_attack = 2
+        if self.ascendance == "archer" :
             self.arrow_count = player_type[1]["arrow_count"]
-        if player_type[0] == "magician" :
+        if self.ascendance == "magician" :
             self.mana_count = player_type[1]["mana_count"]
             self.is_magical = True
 
+        self.max_mana_count = self.mana_count
+
     def __str__(self):
-        return self.ascendence
+        return self.name
 
     def get_player_info(self)->None :
         print("character")
@@ -110,11 +72,21 @@ class Character() :
                 print(key,':',value)
         print("__________________________")
         print()
-        print("weapon")
+        print("weapon(s)")
         input("__________________________")
-        for key,value in self.weapon.__dict__.items() :
-            if str(value) not in ['[]']:
-                print(key,':',value)
+        if len(self.weapon) == 1 :
+            for key,value in self.weapon[0].__dict__.items() :
+                if str(value) not in ['[]']:
+                    print(key,':',value)
+        else :
+            print('weapon 1')
+            for key,value in self.weapon[0].__dict__.items() :
+                if str(value) not in ['[]']:
+                    print(key,':',value)
+            print('weapon 2')
+            for key,value in self.weapon[1].__dict__.items() :
+                if str(value) not in ['[]']:
+                    print(key,':',value)
         print("__________________________")
         print()
         print("armor")
@@ -127,9 +99,41 @@ class Character() :
     def is_alive(self)->bool :
         return self.total_health>0
 
+    def make_choice(self,choice_list:list)->int :
+        if type(choice_list) == list:
+            if len(choice_list) == 2 :
+                input_user = input(f'1:{choice_list[0]}, 2:{choice_list[1]} | what weapon do you want to use ? : ')
+                if input_user not in ['1','2'] :
+                    print('wrong input')
+                    input()
+                    self.make_choice(choice_list)
+                return int(input_user)
+            else :
+                return 1
+        else :
+            return 1
+
     def damage(self)->int :
         if self.is_alive() :
-            return self.weapon.attack()
+            if self.ascendance == "warrior" :
+                print("you have double strike")
+            if len(self.weapon) == 1:
+                return self.weapon[0].attack()*self.nbr_attack
+            else :
+                choice_list = [self.weapon[i].name for i in range(len(self.weapon))]
+                choice_input = self.make_choice(choice_list)
+                if self.weapon[choice_input-1].ismagical == False :
+                    return self.weapon[choice_input-1].attack()*self.nbr_attack
+                else :
+                    attack = self.weapon[choice_input-1].attack()
+                    if  self.mana_count-attack[1] == 0 or self.mana_count-attack[1] > 0:
+                        print(f'your mana pool after the spell casting :')
+                        input(f'{self.mana_count}/{self.max_mana_count}')
+                        return attack[0]
+                    else :
+                        print("can't cast a spell your mana reserve is too low")
+                        input()
+                        self.damage()
     
     def get_health_down(self,amount=0)->int :
         try :
@@ -152,4 +156,4 @@ class Character() :
             return 'missed','missed'
                 
     def show_health(self)->None :
-        print(f'{self.ascendence} as {self.total_health}HP')
+        print(f'{self.name} as {self.total_health}HP')

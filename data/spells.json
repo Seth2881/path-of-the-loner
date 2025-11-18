@@ -1,0 +1,14 @@
+{
+    "fire_ball" : {
+        "name" : "Fire Ball",
+        "damage" : [7,12],
+        "mana_cost" : 10,
+        "bonus" : [["mecha","gobelin","orque"],10]
+    },
+    "white_out" : {
+        "name" : "White Out",
+        "damage" : [1,2],
+        "mana_cost" : 5,
+        "bonus" : [["dark_mage","soron","dark_elf"],900]
+    }
+}

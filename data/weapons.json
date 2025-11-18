@@ -2,26 +2,32 @@
     "daggers" : {
         "damage" : [7,12],
         "magical" : false,
-        "bonus" : []
+        "bonus" : [],
+        "hands": 1
     },
     "hammer" : {
         "damage" : [10,15],
         "magical" : false,
-        "bonus" : [["gobelin","orque"],10]
+        "bonus" : [["gobelin","orque"],10],
+        "hands": 2
     },
     "imaculate_sword" : {
         "damage" : [6,8],
         "magical" : false,
-        "bonus" : [["mecha","dragon"],15]
+        "bonus" : [["mecha","dragon"],15],
+        "mana_bonus" : 10,
+        "hands" : 1
     },
     "arcane_stick" : {
         "damage" : [0,0],
         "magical" : true,
-        "bonus" : [["dark_elf","dark_mage"],20]
+        "bonus" : [["dark_elf","dark_mage"],20],
+        "hands" : 1
     },
     "forest_bow" : {
         "damage" : [10,15],
         "magical" : false,
-        "bonus" : [["dark_elf","dark_mage","mecha"],20]
+        "bonus" : [["dark_elf","dark_mage","mecha"],20],
+        "hands" : 1
     }
 }
