@@ -117,6 +117,14 @@ def build_your_character(weapons,armors,ascendances):
 
     return [hero_name,ascendance,weapon,armor]
 
+def which_ennemy(ennemy_dict:dict):
+    which = input(str(ennemy_dict)[1:-1]+' which monster do you want to hit ? : ')
+    if which not in ennemy_dict.keys() :
+        print('please use a number displayed in the input prompt')
+        which_ennemy(ennemy_dict)
+    else :
+        return which
+
 #PRINCIPAL PROGRAM
 
 choice_player_1 = build_your_character(weapons,armors,ascendances)
@@ -178,6 +186,30 @@ if pvp_or_pve == '1' :
         print("you won !")
 
 else :
-    room_1 = Room(1)
-    room_2 = Room(2)
-    room_3 = Room(3)
+    rooms = [Room(1),Room(2),Room(3)]
+    ennemy = None
+
+    room_nbr = 0
+
+    while room_nbr <4 :
+        ennemy = rooms[room_nbr].monsters
+        while len(ennemy) > 0:
+            order = []
+            ennemy_number = {str(i):ennemy[i] for i in range(len(ennemy))}
+            nbr = which_ennemy(ennemy_number)
+
+            if player_1.attack_order == 1 :
+                ennemy[nbr].get_hit(player_1.damage())
+                for mob in ennemy :
+                    player_1.get_hit(mob.damage())
+            else :
+                for _ in range(len(ennemy)+1) :
+                    order_choice = choice(ennemy+[player_1])
+                    if order_choice not in order :
+                        order.append()
+                
+                for mob in order :
+                    if type(mob) == Monster :
+                        player_1.get_health_down(mob.damage())
+                    elif type(mob) == Character :
+                        ennemy[nbr].get_hit(player_1.damage())

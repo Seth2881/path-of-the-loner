@@ -84,6 +84,7 @@ class Character() :
 
         self.ascendence = player_type[0]
 
+        self.total_health_max =  player_type[1]["hp"]+player_armor.defence
         self.total_health = player_type[1]["hp"]+player_armor.defence
         self.armor_health = player_armor.defence
 

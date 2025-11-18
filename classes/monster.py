@@ -16,15 +16,18 @@ class Monster :
     def is_alive(self)->bool:
         return self.health>0
     
-    def deals_damage(self)->int:
+    def damage(self)->int:
         if self.is_alive() :
             return rdt(self.damage[0],self.damage[1])
 
-    def get_hit(self,amount:int)->int :
+    def get_hit(self,amount:int=0)->int :
         if self.is_alive() :
-            if self.health-amount <=0 :
-                self.health = 0
-                return self.health
+            if rdt(0,100) > 5 :
+                if self.health-amount <=0 :
+                    self.health = 0
+                    return amount,self.health
+                else :
+                    self.health -= amount
+                    return amount,self.health
             else :
-                self.health -= amount
-                return self.health
+                return ("missed","missed")
