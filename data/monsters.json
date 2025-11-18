@@ -1,5 +1,6 @@
 {
     "dark_elf": {
+        "name" : ["Xynvara","Drathen","Vaelith","Zalthir"],
         "type": "elite",
         "hp": 120,
         "damage": [10, 18],
@@ -8,6 +9,7 @@
     },
 
     "gobelin": {
+        "name" : ["Grishnak", "Snaga", "Uglúk", "Shagrat", "Golfimbul"],
         "type": "normal",
         "hp": 60,
         "damage": [5, 10],
@@ -16,6 +18,7 @@
     },
 
     "dragon": {
+        "name" : ["Smaug", "Glaurung"],
         "type": "boss",
         "hp": 350,
         "damage": [20, 30],
@@ -24,6 +27,7 @@
     },
 
     "mecha": {
+        "name" : ["Gondarion-Forge", "Balrog-Engine", "Durin-Unit VII", "Mithril-Sentinel", "Isengard-Machina"],
         "type": "elite",
         "hp": 150,
         "damage": [12, 20],
@@ -32,6 +36,7 @@
     },
 
     "orque": {
+        "name": ["Azog", "Bolg", "Lugdush", "Mauhúr", "Bolgash"],
         "type": "normal",
         "hp": 80,
         "damage": [7, 13],
@@ -40,7 +45,8 @@
     },
 
     "dark_mage": {
-        "type": "boss",
+        "name" : ["The Necromancer","Saroumane"],
+        "type" : "boss",
         "hp": 220,
         "damage": [15, 25],
         "magical": true,
@@ -48,7 +54,8 @@
     },
 
     "soron": {
-        "type": "ultimate_boss",
+        "name" : "Soron, lord of The Ring",
+        "type": "boss",
         "hp": 600,
         "damage": [18, 28],
         "magical": true,

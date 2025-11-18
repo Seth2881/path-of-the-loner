@@ -10,7 +10,7 @@
         "bonus" : [["gobelin","orque"],10]
     },
     "imaculate_sword" : {
-        "damage" : [5,8],
+        "damage" : [6,8],
         "magical" : false,
         "bonus" : [["mecha","dragon"],15]
     },
