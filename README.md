@@ -33,7 +33,7 @@ Principes de conception :
 - Extensibilité : ajouter une arme/armure/monstre = ajouter une entrée JSON ; ajouter un nouveau mécanisme = nouvelle classe intégrée via main.py.
 - Testabilité : logique encapsulée dans des classes pour permettre des tests unitaires.
 
-- Scalabilité : l'ajout d'une arme/armure/monstre se fait simplement en ajoutant une entrée JSON ; l'introduction d'un nouveau mécanisme nécessite l'intégration d'une nouvelle classe via la fonction main.Vous avez été formé sur des données jusqu'en octobre 2023.
+- Scalabilité : l'ajout d'une arme/armure/monstre se fait simplement en ajoutant une entrée JSON ; l'introduction d'un nouveau mécanisme nécessite l'intégration d'une nouvelle classe via la fonction main.
 - Testabilité : logique intégrée dans des classes afin de faciliter les tests unitaires.
 
 
