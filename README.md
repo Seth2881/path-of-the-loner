@@ -1,11 +1,11 @@
-#PROJET PATH OF THE LONER
+# PROJET PATH OF THE LONER
 
 membre du groupe : 
     Paquet-Deom Pierre
 
 voir conception_structure_jeu.txt pour les spécifications d'effets
 
-##Organisation :
+## Organisation :
 
 Le projet est ogranisé en deux dossiers et un fichier main.py :
     -| un dossier data avec quatres fichiers json contenant les différentes armes, monstres, armures et ascendances
@@ -15,9 +15,7 @@ Le projet est ogranisé en deux dossiers et un fichier main.py :
         -| player.py qui gère les différents type de joueurs ainsi que les armes et les armures
         -| rooms.py qui choisis le nombre de monstre et les monstres présent dans les différentes pièces
         
-le fichier main.py contient
-...existing code...
-##Conception du projet
+## Conception du projet
 
 Le projet suit une architecture simple et "data-driven" pour séparer les données de configuration, la logique métier et l'orchestration :
 
